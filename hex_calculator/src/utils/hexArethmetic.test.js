@@ -16,18 +16,18 @@ describe('Hex Subtraction', () => {
   test('Subtracts FF - FE = 1', () => expect(subtractHex('FF', 'FE')).toBe('0001'));
 });
 
-// // ---- Multiplication ----
-// describe('Hex Multiplication', () => {
-//   test('Multiplies 2 * 3 = 6', () => expect(multiplyHex('2', '3')).toBe('6'));
-//   test('Multiplies FF * 2 = 1FE', () => expect(multiplyHex('FF', '2')).toBe('1FE')); // 255 * 2 = 510 (0x1FE)
-//   test('Truncates to 4 digits (FFFE * 10 = FFE0)', () => expect(multiplyHex('FFFE', '10')).toBe('FFE0'));
-// });
+// ---- Multiplication ----
+describe('Hex Multiplication', () => {
+  test('Multiplies 2 * 3 = 6', () => expect(multiplyHex('2', '3')).toBe('0006'));
+  test('Multiplies FF * 2 = 1FE', () => expect(multiplyHex('FF', '2')).toBe('01FE')); // 255 * 2 = 510 (0x1FE)
+  test('Truncates to 4 digits (FFFE * 10 = FFE0)', () => expect(multiplyHex('FFFE', '10')).toBe('FFE0'));
+});
 
-// // ---- Division ----
-// describe('Hex Division', () => {
-//   test('Divides 1E / 5 = 6', () => expect(divideHex('1E', '5')).toBe('6')); // 30 / 5 = 6
-//   test('Performs integer division (B / 2 = 5)', () => expect(divideHex('B', '2')).toBe('5')); // 11 / 2 = 5.5 → 5
-//   test('Throws error for division by zero', () => {
-//     expect(() => divideHex('A', '0')).toThrow('Division by zero');
-//   });
-// });  
+// ---- Division ----
+describe('Hex Division', () => {
+  test('Divides 1E / 5 = 6', () => expect(divideHex('1E', '5')).toBe('0006')); // 30 / 5 = 6
+  test('Performs integer division (B / 2 = 5)', () => expect(divideHex('B', '2')).toBe('0005')); // 11 / 2 = 5.5 → 5
+  test('Throws error for division by zero', () => {
+    expect(() => divideHex('A', '0')).toThrow('Division by zero');
+  });
+});  
