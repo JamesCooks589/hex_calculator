@@ -21,3 +21,9 @@ jobs:
 
       - name: Run tests
         run: npm test -- --watchAll=false
+
+      - name: Run GUI Tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm start
+          wait-on: 'http://localhost:3000'
