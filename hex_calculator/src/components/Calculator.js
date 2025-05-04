@@ -3,6 +3,7 @@ import {
   addHex
 } from '../utils/hexArithmetic';
 import { isValidHex } from '../utils/hexValidation';
+import '../styles/calculator.css';
 
 const Calculator = () => {
   const [display, setDisplay] = useState('00');
