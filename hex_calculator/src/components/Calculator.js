@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { 
-  addHex
+  addHex,
+  subtractHex,
+  multiplyHex,
+  divideHex
 } from '../utils/hexArithmetic';
 import { isValidHex } from '../utils/hexValidation';
 import '../styles/calculator.css';
@@ -37,7 +40,10 @@ const Calculator = () => {
   const handleOperator = (op) => {
     if (!firstOperand) return;
     const operatorSymbol = {
-      plus: '+'
+      plus: '+',
+      subtract: '-',
+      multiply: '×',
+      divide: '÷'
     }[op];
     
     setOperator(operatorSymbol);
@@ -53,6 +59,15 @@ const Calculator = () => {
       switch(operator) {
         case '+':
           result = addHex(firstOperand, secondOperand);
+          break;
+        case '-':
+          result = subtractHex(firstOperand, secondOperand);
+          break;
+        case '×':
+          result = multiplyHex(firstOperand, secondOperand);
+          break;
+        case '÷':
+          result = divideHex(firstOperand, secondOperand);
           break;
         default:
           return;
@@ -84,6 +99,15 @@ const Calculator = () => {
         performCalculation();
         break;
       case 'plus':
+        handleOperator(value);
+        break;
+      case 'subtract':
+        handleOperator(value);
+        break;
+      case 'multiply':
+        handleOperator(value);
+        break;
+      case 'divide':
         handleOperator(value);
         break;
       default:
